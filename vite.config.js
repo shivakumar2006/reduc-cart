@@ -4,13 +4,15 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: './',
+  root: './',
   plugins: [
     react(),
     tailwindcss(),
   ],
   build: {
     outDir: 'dist',
-    emptyOutDir: true,
+    rollupOptions: {
+      input: "./index.html", // Ensures the current entry point
+    }
   },
 })
